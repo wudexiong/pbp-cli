@@ -1,8 +1,13 @@
 {
-  "name": "pdp-cli",
+  "name": "pbp-cli",
   "version": "1.0.0",
-  "description": "pbp 是 Project best practices 项目最佳实践的缩写",
+  "description": "pbp-cli 自认为是 创建初始化最佳实践的常用项目 的脚手架工具。",
   "main": "index.js",
+  "files": [
+    "package.json",
+    "README.md",
+    "lib"
+  ],
   "scripts": {
     "dev:comment": "启动开发环境",
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
@@ -13,7 +18,10 @@
     "commit:comment": "引导设置规范化的提交信息",
     "commit": "cz",
     "build:comment": "构建",
-    "build": "npm run eslint && npm run prettier && rm -rf lib && tsc --build"
+    "build": "npm run eslint && npm run prettier && rimraf lib && tsc --build"
+  },
+  "bin": {
+    "pbp-cli": "./bin/pbp-cli.js"
   },
   "husky": {
     "hooks": {
@@ -22,13 +30,21 @@
     }
   },
   "lint-staged": {
-    "*.ts": ["npm run eslint", "npm run prettier"]
+    "*.ts": [
+      "npm run eslint",
+      "npm run prettier"
+    ]
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wudexiong/pbp-cli.git"
   },
-  "keywords": [],
+  "keywords": [
+    "typescript",
+    "cli",
+    "pbp",
+    "最佳实践"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -56,5 +72,12 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "clear-console": "^1.1.0",
+    "commander": "^9.2.0",
+    "inquirer": "^8.2.4",
+    "shelljs": "^0.8.5"
   }
 }
