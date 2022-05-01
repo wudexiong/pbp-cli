@@ -8,6 +8,7 @@
     "README.md",
     "lib"
   ],
+  "types": "lib/types",
   "scripts": {
     "dev:comment": "启动开发环境",
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
